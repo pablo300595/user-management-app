@@ -1,3 +1,27 @@
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .logo-text {
+        font-family: Nunito;
+        font-weight: 900;
+        font-size: 48px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #155883;
+    }
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .title {
     font-family: Roboto;
     font-weight: 700;
@@ -5,6 +29,7 @@
     line-height: 130%;
     letter-spacing: 0%;
     text-align: center;
+    color: #155883;
 }
 
 .subtitle {
@@ -14,4 +39,6 @@
     line-height: 140%;
     letter-spacing: 0%;
     text-align: center;
+    color: #A0AEC0;
 }
+
