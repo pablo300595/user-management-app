@@ -6,17 +6,16 @@ import { User } from '../../models/user';
 const TOKEN_KEY = 'auth_token';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor() { }
+  constructor() {}
 
   login(username: string, password: string): Observable<{ username: string }> {
     return of(USER_LIST).pipe(
       delay(500),
       map((users: User[]) => {
-        const user = users.find(u => u.username === username && u.password === password);
+        const user = users.find((u) => u.username === username && u.password === password);
         if (user) {
           const token = btoa(`${user.username}:${user.password}`);
           localStorage.setItem(TOKEN_KEY, token);

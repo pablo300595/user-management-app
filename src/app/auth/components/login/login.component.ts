@@ -19,7 +19,7 @@ import { JsonPipe } from '@angular/common';
     MatButtonModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   private _formBuilder = inject(FormBuilder).nonNullable;
@@ -28,7 +28,6 @@ export class LoginComponent {
 
   checked = signal(false);
   loginError = signal('');
-
 
   loginFormGroup = this._formBuilder.group({
     username: ['', Validators.required],
@@ -43,7 +42,7 @@ export class LoginComponent {
   }
 
   onMatSlideChange() {
-    this.checked.update(value => !value);
+    this.checked.update((value) => !value);
   }
 
   signIn() {
@@ -62,7 +61,7 @@ export class LoginComponent {
       error: (error) => {
         console.error('Login failed:', error.message);
         this.loginError.set('Incorrect username or password');
-      }
+      },
     });
   }
 
@@ -75,5 +74,4 @@ export class LoginComponent {
     const control = this.loginFormGroup.controls.password;
     return control.hasError('required') ? 'You must enter a value' : '';
   }
-
 }
