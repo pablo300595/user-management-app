@@ -7,7 +7,6 @@
 </div>
 
 <div class="login-card">
-
     <h2 class="title">Welcome Back</h2>
 
     <p class="subtitle">Enter your username and password to sign in</p>
@@ -16,6 +15,9 @@
       <div class="login-card-form-input">
         <label class="input-label">Username</label>
         <input class="username-field" type="text" placeholder="Your username" formControlName="username">
+        @if (loginFormGroup.controls.username.invalid && (loginFormGroup.controls.username.dirty || loginFormGroup.controls.username.touched)) {
+          <span class="error-message">{{getUsernameError()}}</span>
+        }
       </div>
 
       <div class="login-card-form-input">
@@ -26,21 +28,26 @@
           placeholder="password"
           formControlName="password"
         >
+        @if (loginFormGroup.controls.password.invalid && (loginFormGroup.controls.password.dirty || loginFormGroup.controls.password.touched)) {
+          <span class="error-message">{{getPasswordError()}}</span>
+        }
       </div>
   
       <mat-slide-toggle
         class="display-pass-toggle"
         formControlName="showPassword"
         [checked]="checked()"
-        (change)="onChange()"
+        (change)="onMatSlideChange()"
         >
         <mat-label>Show Password</mat-label>
       </mat-slide-toggle>
 
-      <button class="signin-button" matButton="filled">SIGN IN</button>
+      @if (loginError()) {
+        <div class="login-error-message">{{ loginError() }}</div>
+      }
+
+      <button class="signin-button" matButton="filled" (click)="signIn()">SIGN IN</button>
     </form>
 
-
     <p class="bottom-text">Having trouble signing in? <b>Contact Support</b></p>
-
 </div>
