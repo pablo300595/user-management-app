@@ -12,6 +12,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        canActivate: [authGuard],
         loadComponent: () =>
           import('./dashboard/components/home/dashboard-view/dashboard-view.component').then(
             (m) => m.DashboardViewComponent
@@ -19,6 +20,7 @@ export const routes: Routes = [
       },
       {
         path: 'profile',
+        canActivate: [authGuard],
         loadComponent: () =>
           import('./dashboard/components/home/profile-view/profile-view.component').then(
             (m) => m.ProfileViewComponent
