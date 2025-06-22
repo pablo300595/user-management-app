@@ -12,23 +12,28 @@
 
     <p class="subtitle">Enter your username and password to sign in</p>
 
-    <mat-form-field class="username-field">
-      <input matInput type="text" placeholder="username">
-    </mat-form-field>
+    <form [formGroup]="loginFormGroup" class="login-card-form">
+      <div class="login-card-form-input">
+        <label class="input-label">Username</label>
+        <input class="username-field" type="text" placeholder="Your username" formControlName="username">
+      </div>
 
-    <mat-form-field class="username-pass">
-      <input matInput type="text" placeholder="password">
-    </mat-form-field>
+      <div class="login-card-form-input">
+        <label class="input-label">Password</label>
+        <input class="username-pass" type="text" placeholder="password" formControlName="password">
+      </div>
+  
+      <mat-slide-toggle
+        class="display-pass-toggle"
+        formControlName="showPassword"
+        [checked]="checked">
+        <mat-label>Show Password</mat-label>
+      </mat-slide-toggle>
 
-    <mat-slide-toggle
-      class="display-pass-toggle"
-      [checked]="checked"
-      [disabled]="disabled">
-      <mat-label>Show Password</mat-label>
-    </mat-slide-toggle>
+      <button class="signin-button" matButton="filled">SIGN IN</button>
+    </form>
 
-    <button matButton="filled">SIGN IN</button>
 
-    <p class="subtitle">Having trouble signing in? <b>Contact Support</b></p>
+    <p class="bottom-text">Having trouble signing in? <b>Contact Support</b></p>
 
 </div>
