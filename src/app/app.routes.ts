@@ -5,6 +5,26 @@ import { authGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./dashboard/components/home/dashboard-view/dashboard-view.component').then(
+            (m) => m.DashboardViewComponent
+          ),
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import('./dashboard/components/home/profile-view/profile-view.component').then(
+            (m) => m.ProfileViewComponent
+          ),
+      },
+    ],
+  },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];

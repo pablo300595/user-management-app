@@ -1,5 +1,5 @@
 <div class="navbar-container">
-  <div class="icon-button">
+  <div class="icon-button" [routerLink]="['/home']">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
     <span>Home</span>
   </div>
@@ -24,7 +24,7 @@
     <span>Notifications</span>
   </div>
 
-  <div class="icon-button">
+  <div class="icon-button" [routerLink]="['/home/profile']">
     <mat-icon
       aria-hidden="false"
       aria-label="Example home icon"

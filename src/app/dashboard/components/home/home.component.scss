@@ -1,12 +1,12 @@
 .home-grid {
   display: grid;
-  grid-template-columns: 1fr 4fr 4fr 4fr 4fr;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    'profile navbar navbar navbar navbar'
-    'profile insight insight insight insight'
-    'profile filters filters filters filters'
-    'profile table   table   table   table';
+    'profile navbar'
+    'profile page'
+    'profile page'
+    'profile page';
   gap: 1rem;
   height: 100%;
   width: 100%;
@@ -21,14 +21,6 @@
   grid-area: navbar;
 }
 
-.insight-cards {
-  grid-area: insight;
-}
-
-.filters {
-  grid-area: filters;
-}
-
-.users-table {
-  grid-area: table;
+.page {
+  grid-area: page;
 }

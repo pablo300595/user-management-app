@@ -1,0 +1,241 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-left: 1em;
+  padding-left: 1em;
+  margin-top: 1rem;
+  gap: 1rem;
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 46%;
+    width: 100%;
+    background: #f9fafb;
+    border-radius: 5px;
+
+    .profile-card-row {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .profile-card-row-alt {
+      display: flex;
+      width: 100%;
+
+      mat-icon {
+        font-size: 18px;
+        color: #155883;
+      }
+    }
+  }
+}
+
+.profile-picture {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  width: 132px;
+  height: 21px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+.profile-description {
+  width: 156.234375px;
+  height: 39.40226745605469px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #155883;
+}
+
+.profile-contact-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 19.701133728027344px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+  margin-bottom: 1rem;
+}
+
+.profile-views-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 19.701133728027344px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+  margin-bottom: 1rem;
+}
+
+.profile-intro-text {
+  width: 209px;
+  height: 39px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #161722;
+  margin-bottom: 1rem;
+}
+
+.profile-exclusive-text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+  margin-bottom: 1rem;
+}
+
+.profile-try-text {
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0%;
+  color: #161722;
+  margin-bottom: 1rem;
+}
+
+.profile-elements-text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+}
+
+.profile-last-text {
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #161722;
+}
+
+.profile-latest-text {
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #000000;
+}
+
+.profile-groups-text {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+}
+
+.profile-subgroup-text {
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+}
+
+.profile-showmore-text {
+  margin-top: 1rem;
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #989898;
+}
+
+.profile-showmore-icon {
+  margin-top: 1rem;
+  color: #989898;
+}
+
+.profile-events-text {
+  margin-top: 1rem;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+}
+
+.profile-add-icon {
+  margin-top: 1rem;
+  color: #155883;
+}
+
+.profile-tracked-text {
+  width: 100%;
+  margin-top: 1rem;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #155883;
+}
+
+.profile-searchnew-text {
+  margin-top: 1rem;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #155883;
+}
