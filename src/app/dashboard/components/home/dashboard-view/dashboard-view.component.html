@@ -7,23 +7,18 @@
       type="text"
       placeholder="Find people"
       formControlName="searchBar" />
-    <button
-      class="search-button"
-      matButton="filled"
-      (click)="search(filterFormGroup.controls.searchBar.value)">
-      SEARCH
-    </button>
+    <button class="search-button" matButton="filled" (click)="search()">SEARCH</button>
     <span class="date-text">Date from</span>
     <mat-form-field class="pickerField">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="pickerFrom" class="calendar" />
+      <input matInput [matDatepicker]="pickerFrom" class="calendar" formControlName="dateFrom" />
       <mat-datepicker-toggle matIconSuffix [for]="pickerFrom"></mat-datepicker-toggle>
       <mat-datepicker #pickerFrom></mat-datepicker>
     </mat-form-field>
     <span class="date-text">Date To</span>
     <mat-form-field class="pickerField">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="pickerTo" class="calendar" />
+      <input matInput [matDatepicker]="pickerTo" class="calendar" formControlName="dateTo" />
       <mat-datepicker-toggle matIconSuffix [for]="pickerTo"></mat-datepicker-toggle>
       <mat-datepicker #pickerTo></mat-datepicker>
     </mat-form-field>

@@ -43,6 +43,8 @@ export class DashboardViewComponent {
 
   filterFormGroup = this._formBuilder.group({
     searchBar: [''],
+    dateFrom: [null],
+    dateTo: [null],
   });
 
   ngOnInit(): void {
@@ -52,23 +54,26 @@ export class DashboardViewComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    this.dataSource.filterPredicate = (data: UserTableRow, filter: string): boolean => {
+      const parsedFilter = JSON.parse(filter);
+
+      const matchesSearch =
+        data.name.toLowerCase().includes(parsedFilter.searchText) ||
+        data.email.toLowerCase().includes(parsedFilter.searchText) ||
+        data.address.toLowerCase().includes(parsedFilter.searchText) ||
+        data.phone.toLowerCase().includes(parsedFilter.searchText);
+
+      const birthDate = new Date(data.birth);
+
+      const from = parsedFilter.dateFrom ? new Date(parsedFilter.dateFrom) : null;
+      const to = parsedFilter.dateTo ? new Date(parsedFilter.dateTo) : null;
+
+      const inRange = (!from || birthDate >= from) && (!to || birthDate <= to);
+
+      return matchesSearch && inRange;
+    };
   }
-
-  // loadUsers(): void {
-  //   this._userService.getUsers(this.currentPage, 20).subscribe((users) => {
-  //     const userTableRows: UserTableRow[] = users.map((user, index) => ({
-  //       number: index + 1 + (this.currentPage - 1) * 10,
-  //       name: `${user.name.first} ${user.name.last}`,
-  //       email: user.email,
-  //       address: `${user.location.city}, ${user.location.country}`,
-  //       phone: user.phone,
-  //       birth: new Date(user.dob.date).toLocaleDateString(),
-  //       actions: 'delete',
-  //     }));
-
-  //     this.dataSource.data = userTableRows;
-  //   });
-  // }
 
   loadUsers(): void {
     const cachedUsers = localStorage.getItem('cachedUsers');
@@ -98,8 +103,16 @@ export class DashboardViewComponent {
     this.dataSource.data = userTableRows;
   }
 
-  search(searchCriteria: string) {
-    this.dataSource.filter = searchCriteria.trim().toLowerCase();
+  search(): void {
+    const form = this.filterFormGroup.value;
+
+    const filter = {
+      searchText: form.searchBar?.trim().toLowerCase() || '',
+      dateFrom: form.dateFrom,
+      dateTo: form.dateTo,
+    };
+
+    this.dataSource.filter = JSON.stringify(filter);
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
