@@ -20,13 +20,20 @@
 
       <div class="login-card-form-input">
         <label class="input-label">Password</label>
-        <input class="username-pass" type="text" placeholder="password" formControlName="password">
+        <input
+          class="username-pass"
+          [type]="checked() ? 'text' : 'password'"
+          placeholder="password"
+          formControlName="password"
+        >
       </div>
   
       <mat-slide-toggle
         class="display-pass-toggle"
         formControlName="showPassword"
-        [checked]="checked">
+        [checked]="checked()"
+        (change)="onChange()"
+        >
         <mat-label>Show Password</mat-label>
       </mat-slide-toggle>
 

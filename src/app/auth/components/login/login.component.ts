@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,12 +20,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 })
 export class LoginComponent {
   private _formBuilder = inject(FormBuilder);
-  checked = false;
+  checked = signal(false);
 
   loginFormGroup = this._formBuilder.group({
     username: ['', Validators.requiredTrue],
     password: ['', Validators.requiredTrue],
     showPassword: [false, Validators.requiredTrue],
   });
+
+  onChange() {
+    this.checked.update(value => !value);
+  }
 
 }
