@@ -18,3 +18,10 @@ app-login {
   height: 100%;
   // background-color: rgb(189, 112, 12);
 }
+
+app-profile-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

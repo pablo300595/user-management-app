@@ -11,6 +11,7 @@ import { UserService } from '../../../services/user/user.service';
 import { User, UserTableRow } from '../../../models';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-view',
@@ -33,6 +34,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 export class DashboardViewComponent {
   private _formBuilder = inject(FormBuilder).nonNullable;
   private _userService = inject(UserService);
+  private _router = inject(Router);
   displayedColumns: string[] = ['number', 'name', 'email', 'address', 'phone', 'birth', 'actions'];
   currentPage = 1;
 
@@ -117,5 +119,10 @@ export class DashboardViewComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  goToProfile(user: UserTableRow) {
+    console.log(user);
+    this._router.navigate([`/home/profile/${user.number - 1}`]);
   }
 }

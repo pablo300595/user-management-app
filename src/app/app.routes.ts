@@ -19,7 +19,7 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'profile',
+        path: 'profile/:id',
         canActivate: [authGuard],
         loadComponent: () =>
           import('./dashboard/components/home/profile-view/profile-view.component').then(

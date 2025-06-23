@@ -1,1 +1,36 @@
-<p>profile-view works!</p>
+@if (user) {
+  <div class="profile-header">
+    <img class="profile-header-img" src="/profile-view.png" alt="profile-view" />
+    <div class="profile-header-row">
+      <h2 class="profile-header-title">{{ user.name.first }} {{ user.name.last }}</h2>
+      <p class="profile-header-subtitle">Cat enthusiast & full-time feline cuddler. 🐾</p>
+    </div>
+  </div>
+
+  <div class="profile-content">
+    <div class="profile-content-row">
+      <div class="profile-content-row-input">
+        <span class="field-title-text">Email</span>
+        <p class="read-field">{{ user.email }}</p>
+      </div>
+      <div class="profile-content-row-input">
+        <span class="field-title-text">Birth Date</span>
+        <p class="read-field">{{ user.dob.date | date }}</p>
+      </div>
+    </div>
+
+    <div class="profile-content-row">
+      <div class="profile-content-row-input">
+        <span class="field-title-text">Address</span>
+        <p class="read-field">
+          {{ user.location.postcode }} {{ user.location.city }} {{ user.location.street.name }}
+          {{ user.location.state }} {{ user.location.street.number }}
+        </p>
+      </div>
+      <div class="profile-content-row-input">
+        <span class="field-title-text">Phone Number</span>
+        <p class="read-field">{{ user.phone | phoneNumber }}</p>
+      </div>
+    </div>
+  </div>
+}
