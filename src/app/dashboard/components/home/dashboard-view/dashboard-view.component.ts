@@ -84,7 +84,7 @@ export class DashboardViewComponent {
       const parsedUsers: User[] = JSON.parse(cachedUsers);
       this.populateTable(parsedUsers);
     } else {
-      this._userService.getUsers(this.currentPage, 20).subscribe((users) => {
+      this._userService.getUsers(this.currentPage, 50).subscribe((users) => {
         localStorage.setItem('cachedUsers', JSON.stringify(users));
         this.populateTable(users);
       });

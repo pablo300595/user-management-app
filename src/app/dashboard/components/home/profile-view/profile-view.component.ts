@@ -4,10 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user/user.service';
 import { DatePipe } from '@angular/common';
 import { PhoneNumberPipe } from '../../../../shared/pipes/phone.pipe';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-profile-view',
-  imports: [DatePipe, PhoneNumberPipe],
+  imports: [DatePipe, PhoneNumberPipe, MatButtonModule],
   standalone: true,
   templateUrl: './profile-view.component.html',
   styleUrl: './profile-view.component.scss',

@@ -11,7 +11,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(page: number = 1, results: number = 20): Observable<User[]> {
+  getUsers(page: number = 1, results: number = 50): Observable<User[]> {
     return this.http
       .get<ApiResponse>(`${this.API_URL}?page=${page}&results=${results}`)
       .pipe(map((response) => response.results));

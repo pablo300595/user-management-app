@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 .profile-header {
   display: flex;
   flex-direction: row;
@@ -94,4 +96,60 @@
   line-height: 100%;
   letter-spacing: 0px;
   color: #000000;
+}
+
+.cats-content {
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  .cats-content-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.cats-text {
+  width: 80%;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  margin-bottom: 1rem;
+}
+
+.cat-image {
+  width: 300px;
+  height: 198px;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.cat-text {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: gray;
+}
+
+.actions {
+  display: flex;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.add-cat-button {
+  align-self: flex-start;
+  @include mat.button-overrides(
+    (
+      filled-container-color: #155883,
+    )
+  );
 }
