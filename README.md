@@ -37,6 +37,8 @@ The application includes:
 https://pablo300595.github.io/user-management-app/
 
 ### Mock Credentials
+This is not a good practice, but is used for learning purposes.
+```js
 export const USER_LIST = [
   { username: 'user123', password: 'Password1!' },
   { username: 'coder_gal', password: 'SecurePass2#' },
@@ -44,6 +46,7 @@ export const USER_LIST = [
   { username: 'test_account', password: 'WeakPassword4%' },
   { username: 'admin_user', password: 'AdminPass5^' },
 ];
+```
 
 ### Installation
 
