@@ -44,7 +44,7 @@ export const USER_LIST = [
   { username: 'dev_master', password: 'MySecretPwd3$' },
   { username: 'test_account', password: 'WeakPassword4%' },
   { username: 'admin_user', password: 'AdminPass5^' },
-];
+];```
 
 ### Installation
 
