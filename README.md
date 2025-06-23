@@ -30,8 +30,8 @@ The application includes:
 
 ### Prerequisites
 
-- Node.js ≥ 18
-- Angular CLI ≥ 17
+- Node.js v22.16.0
+- Angular CLI 20.0.3
 
 ### Installation
 
