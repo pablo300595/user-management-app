@@ -36,6 +36,7 @@ The application includes:
 ### Production Link
 https://pablo300595.github.io/user-management-app/
 
+```markdown
 ### Mock Credentials
 ```ts
 export const USER_LIST = [
