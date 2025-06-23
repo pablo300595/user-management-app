@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
-import { JsonPipe } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ import { JsonPipe } from '@angular/common';
     MatInputModule,
     MatSlideToggleModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
@@ -28,6 +29,7 @@ export class LoginComponent {
 
   checked = signal(false);
   loginError = signal('');
+  isLoading = signal(false);
 
   loginFormGroup = this._formBuilder.group({
     username: ['', Validators.required],
@@ -52,6 +54,7 @@ export class LoginComponent {
     }
 
     const { username, password } = this.loginFormGroup.getRawValue();
+    this.isLoading.set(true);
 
     this._authService.login(username, password).subscribe({
       next: () => {
@@ -61,6 +64,10 @@ export class LoginComponent {
       error: (error) => {
         console.error('Login failed:', error.message);
         this.loginError.set('Incorrect username or password');
+        this.isLoading.set(false);
+      },
+      complete: () => {
+        this.isLoading.set(false);
       },
     });
   }

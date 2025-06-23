@@ -11,6 +11,10 @@
   </svg>
 
   <h1 class="logo-text">CHARLIE’S CAT LOVERS CLUB</h1>
+
+  @if (isLoading()) {
+    <mat-spinner diameter="100"></mat-spinner>
+  }
 </div>
 
 <div class="login-card">
